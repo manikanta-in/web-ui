@@ -2,7 +2,7 @@ const express = require('express');
 const morgan = require('morgan');
 const router = express.Router();
 const bodyParser = require('body-parser');
-
+const routes = require('./routes');
 const path = require('path');
 const app = express();
 console.log('app initlizing ...');
@@ -12,6 +12,7 @@ console.log('app started...');
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(morgan('dev'));
+app.use("/",routes);
 app.use(function(req, res, next) {
   if (path.extname(req.path).length > 0) {
     next();
