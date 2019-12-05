@@ -23,6 +23,7 @@ export class FormMdCreatorComponent implements OnInit {
   value = 0;
   vertical = false;
   todayDate = new Date();
+  tickInterval = 1;
 
   @Input()
   selModel: any;
