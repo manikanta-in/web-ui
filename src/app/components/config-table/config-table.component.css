@@ -1,0 +1,30 @@
+/*::ng-deep .ui-sortable-column {
+  background-color: #202c3c !important;
+  color: white !important ;
+  border: none !important;
+}
+::ng-deep body .ui-table .ui-table-tbody > tr > td {
+  border: none !important;
+  background-color: #202c3c !important;
+  color: white !important ;
+}
+::ng-deep .ui-paginator-bottom {
+  background-color: #202c3c !important;
+  color: white !important ;
+  border: none !important;
+  margin-left: 3%;
+  margin-right: 3%;
+}
+::ng-deep .ui-table-summary {
+  background-color: #202c3c !important;
+  color: white !important ;
+  border: none !important;
+  margin-left: 3%;
+  margin-right: 3%;
+}
+::ng-deep .ui-table-scrollable-view {
+  margin-left: 3%;
+  margin-top: 3%;
+  margin-right: 3%;
+}
+*/

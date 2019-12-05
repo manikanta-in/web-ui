@@ -1,0 +1,81 @@
+:host {
+    display: block;
+    position: relative;
+    width: 100%;
+    padding: 36px 24px;
+}
+
+.dialog-close-button {
+    position: absolute;
+    padding: .5rem;
+    top: 0;
+    right: 0;
+    font-size: 20px;
+    height: 20px;
+    width: 20px;
+    line-height: 20px;
+    box-sizing: content-box;
+}
+
+.dialog-title-container {
+    font-family: MillerDisplay;
+    font-size: 16px;
+    font-weight: 600;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 1.25;
+    letter-spacing: normal;
+    text-align: center;
+    color: #000000;
+    margin-bottom: 12px;
+}
+
+.dialog-body-container {
+    font-family: WhitneySSm;
+    font-size: 16px;
+    text-align: center;
+}
+
+.dialog-buttons-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 40px;
+    line-height: 40px;
+}
+
+.dialog-button {
+    flex: 1;
+    min-width: 100px;
+    max-width: 175px;
+    margin: 0 10px;
+    border-radius: 20px;
+    border: solid 1px transparent;
+    background-color: rgba(255, 255, 255, 0.85);
+    font-family: WhitneySSm;
+    font-size: 14px;
+    font-weight: bold;
+    font-style: normal;
+    font-stretch: normal;
+    letter-spacing: normal;
+    text-align: center;
+    color: #000000;
+    cursor: pointer;
+    user-select: none;
+    transition: background-color .35s;
+}
+
+    .dialog-button:first-child {
+        margin-left: 0;
+    }
+
+    .dialog-button:last-child {
+        margin-right: 0;
+    }
+
+    .dialog-button.button-default{
+        border-color: #000;
+    }
+
+    .dialog-button:hover {
+        background-color: #eaeaea;
+    }

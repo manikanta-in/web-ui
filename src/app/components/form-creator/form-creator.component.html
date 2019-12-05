@@ -1,0 +1,66 @@
+<div class="ui-g ui-fluid" *ngIf="selModel">
+  <div *ngFor="let col of cols">
+    <div class="ui-g-12">
+      <div class="ui-g-4">
+        <label for="col.header">{{ col.header }}</label>
+      </div>
+      <div class="ui-g-8">
+        <p-calendar *ngIf="isDateType(col)" id="col.field" [(ngModel)]="selModel[col.field]"></p-calendar>
+        <!-- <mat-form-field class="date-picker" *ngIf="isDateType(col)">
+          <input matInput [matDatepicker]="picker" placeholder="Choose a date" />
+          <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+          <mat-datepicker #picker></mat-datepicker>
+        </mat-form-field>-->
+        <!-- <p-dropdown
+          id="col.field"
+          *ngIf="isDropDown(col)"
+          [options]="col.options"
+          [(ngModel)]="rowData[col.field]"
+        ></p-dropdown>
+        -->
+
+        <div>
+          <p-dropdown
+            *ngIf="isDropDown(col)"
+            [options]="col.options"
+            [(ngModel)]="selModel[col.field]"
+            optionLabel="viewValue"
+          ></p-dropdown>
+        </div>
+        <!--<mat-form-field *ngIf="isDropDown(col)">
+          <mat-label>Select</mat-label>
+          <mat-select>
+            <mat-option *ngFor="let option of col.options" [value]="option.value"> {{ option.viewValue }} </mat-option>
+          </mat-select>
+        </mat-form-field>
+-->
+        <!-- <p-slider *ngIf="isSlider(col)" [(ngModel)]="selModel[col.field]" [min]="col.min" [max]="col.max"></p-slider>
+      -->
+
+        <mat-slider
+          *ngIf="isSlider(col)"
+          class="example-margin"
+          [disabled]="disabled"
+          [invert]="invert"
+          [max]="col.max"
+          [min]="col.min"
+          [step]="step"
+          [thumbLabel]="thumbLabel"
+          [tickInterval]="tickInterval"
+          [(ngModel)]="selModel[col.field]"
+          [vertical]="vertical"
+        >
+        </mat-slider>
+        <mat-form-field *ngIf="isStringType(col)" class="example-full-width">
+          <input
+            matInput
+            id="col.header"
+            [placeholder]="col.header"
+            [(ngModel)]="selModel[col.field]"
+            value="selModel[col.field]"
+          />
+        </mat-form-field>
+      </div>
+    </div>
+  </div>
+</div>

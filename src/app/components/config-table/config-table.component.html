@@ -1,0 +1,99 @@
+<p-table
+  [columns]="cols"
+  [value]="data"
+  [scrollable]="true"
+  [style]="{ overflow: 'visible' }"
+  scrollHeight="350px"
+  (onRowSelect)="onRowSelect($event)"
+  (onRowUnselect)="onRowUnselect($event)"
+  [paginator]="true"
+  [rows]="10"
+  editMode="row"
+  selectionMode="single"
+>
+  <ng-template pTemplate="header" let-columns >
+    <tr>
+      <th *ngFor="let col of columns" [pSortableColumn]="col.field">
+        {{ col.header }}<p-sortIcon [field]="col.field"></p-sortIcon>
+      </th>
+    </tr>
+  </ng-template>
+  <!--<ng-template pTemplate="body" let-rowData let-columns="columns">
+    <tr>
+      <td><p-inputSwitch [(ngModel)]="checked"></p-inputSwitch></td>
+      <td *ngFor="let col of columns" pEditableColumn [style]="{ overflow: 'visible' }">
+        <p-cellEditor *ngIf="col.edit && isStringType(col)">
+          <ng-template pTemplate="input"> <input pInputText type="text" [(ngModel)]="rowData[col.field]" /> </ng-template>
+          <ng-template pTemplate="output"> {{ rowData[col.field] }} </ng-template>
+        </p-cellEditor>
+        <p-cellEditor *ngIf="col.edit && isDateType(col)">
+          <ng-template pTemplate="input">
+            <p-calendar [(ngModel)]="rowData[col.field]" [style]="{ overflow: 'visible' }"></p-calendar>
+          </ng-template>
+          <ng-template pTemplate="output">
+            <p-calendar
+              [(ngModel)]="rowData[col.field]"
+              [showTransitionOptions]="'0ms'"
+              [hideTransitionOptions]="'0ms'"
+              [style]="{ width: '100%' }"
+            ></p-calendar>
+          </ng-template>
+        </p-cellEditor>
+        <p-cellEditor *ngIf="col.edit && isDropDown(col)">
+          <ng-template pTemplate="input">
+            <p-dropdown [options]="col.options" [(ngModel)]="rowData[col.field]" [style]="{ width: '100%' }"></p-dropdown>
+          </ng-template>
+          <ng-template pTemplate="output"> {{ rowData[col.field] }} </ng-template>
+        </p-cellEditor>
+
+        <p-cellEditor *ngIf="col.edit && isMultiSelect(col)">
+          <ng-template pTemplate="input">
+            <p-multiSelect
+              [options]="col.options"
+              [(ngModel)]="rowData[col.field]"
+              [style]="{ width: '100%' }"
+              optionLabel="name"
+            ></p-multiSelect>
+          </ng-template>
+          <ng-template pTemplate="output"> {{ rowData[col.field] }} </ng-template>
+        </p-cellEditor>
+
+        <p-cellEditor *ngIf="col.edit && isSlider(col)">
+          <ng-template pTemplate="input">
+            <p-slider [(ngModel)]="rowData[col.field]" [style]="{ width: '100%' }" [min]="col.min" [max]="col.max"></p-slider>
+          </ng-template>
+          <ng-template pTemplate="output">
+            <p-slider [(ngModel)]="rowData[col.field]" [style]="{ width: '100%' }"></p-slider>
+          </ng-template>
+        </p-cellEditor>
+
+        <span *ngIf="!col.edit">{{ rowData[col.field] }}</span>
+      </td>
+    </tr>
+  </ng-template>
+  -->
+  <ng-template pTemplate="body" let-rowData let-columns="columns">
+    <tr [pSelectableRow]="rowData">
+
+      <td *ngFor="let col of columns">
+
+        <mat-slide-toggle *ngIf="isSliderToggle(col)" [checked]="isChecked(rowData)"
+        (change)="onToggleChange($event,rowData)" [(ngModel)]="rowData.checked"></mat-slide-toggle>
+        <span *ngIf="!isDateType(col)">{{ rowData[col.field] }}</span>
+        <span *ngIf="isDateType(col)">{{ rowData[col.field] | date: "MM/dd/yyyy" }}</span>
+
+      </td>
+
+
+    </tr>
+  </ng-template>
+  <ng-template pTemplate="summary" let-rowData>
+    <div *ngIf="isAdd" style="text-align:left">
+      <button type="button" pButton icon="fa fa-plus" (click)="showDialogToAdd()" label={{addLabel}}></button>
+      <button *ngIf="updateModel" type="button" pButton icon="fa fa-plus" (click)="deleteData()" label="delete"></button>
+    </div>
+
+  </ng-template>
+</p-table>
+
+

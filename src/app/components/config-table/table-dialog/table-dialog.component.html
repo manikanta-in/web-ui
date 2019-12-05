@@ -1,0 +1,18 @@
+<p-dialog
+  [header]="header"
+  [(visible)]="displayDialog"
+  [responsive]="true"
+  showEffect="fade"
+  [modal]="true"
+  [closable]="true"
+  (onHide)="close()"
+  [style]="{ width: '500px' }"
+>
+  <app-form-creator [cols]="cols" [(selModel)]="selModel"></app-form-creator>
+  <p-footer>
+    <div class="ui-dialog-buttonpane ui-helper-clearfix">
+      <button type="button" pButton icon="fa fa-close" (click)="delete()" label="Delete"></button>
+      <button type="button" pButton icon="fa fa-check" (click)="save()" label="Save"></button>
+    </div>
+  </p-footer>
+</p-dialog>

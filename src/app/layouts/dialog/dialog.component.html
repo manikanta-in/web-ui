@@ -1,0 +1,20 @@
+<div class="dialog-close-button"
+        *ngIf="dialog.allowClose"
+        (click)="doAction(null)">
+    ✕
+</div>
+<div class="dialog-title-container" *ngIf="dialog.titleText">
+    {{dialog.titleText}}
+</div>
+<div class="dialog-body-container" *ngIf="dialog.bodyText">
+    {{dialog.bodyText}}
+</div>
+<div class="dialog-buttons-container">
+    <ng-container *ngFor="let action of dialog.actions">
+        <div class="dialog-button"
+                [ngClass]="{'button-default': !!action.isDefaultedChoice}"
+                (click)="doAction(action.callbackFunction)">
+            {{action.buttonText}}
+        </div>
+    </ng-container>
+</div>

@@ -1,0 +1,11 @@
+{
+  "baseApi": "http://localhost:8095",
+  "Ocp-Apim-Subscription-Key": "2733cbd82e0f4d2eaffb01728adb1dea",
+  "serviceDisruptionClientSource": "web",
+  "serviceDisruptionApiVersion": "2019-04-24",
+  "locationsApiVersion": "1.0",
+  "analyticsURL": "//assets.adobedtm.com/launch-EN875fb1ad3b68492b9a419611e78c6199-development.min.js",
+  "guestAuthClientId": "poc-client",
+  "guestAuthClientSecret": "poc-secret",
+  "guestAuthGrantType": "password"
+}
