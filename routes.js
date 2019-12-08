@@ -19,9 +19,12 @@ router.post('/api/users/user', function(req, res) {
   console.log(req.body)
   axios.post(`${config.service}/api/users/user`,req.body)
     .then(response => {
+      console.log("user added");
       res.send(response.data);
     })
     .catch(error => {
+      console.log("user added error");
+      console.log(error);
       res.send(error);
     });
 });
